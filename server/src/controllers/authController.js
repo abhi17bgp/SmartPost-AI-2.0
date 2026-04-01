@@ -228,7 +228,6 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
             <p>Hi <strong>${user.name}</strong>,</p>
             <p>We received a request to reset the password associated with your SmartPost AI account. If you made this request, you can securely configure a new password by clicking the button below:</p>
             <div class="button-container">
-              // <a href="${resetUrl}" class="button">Reset My Password</a>
               <a href="${resetUrl}" target="_blank" rel="noopener noreferrer" class="button">
   Reset My Password
 </a>
