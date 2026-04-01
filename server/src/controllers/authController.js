@@ -196,7 +196,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   const frontendUrl =  'https://smart-post-ai-2-0.vercel.app' ;
   const resetUrl = `${frontendUrl}/reset-password/${resetToken}`;
 
-  const message = `Forgot your password? Click the link below to reset your password:\n\n${resetUrl}\n\nIf you didn't forget your password, please ignore this email!`;
+  // const message = `Forgot your password? Click the link below to reset your password:\n\n${resetUrl}\n\nIf you didn't forget your password, please ignore this email!`;
   const html = `
     <!DOCTYPE html>
     <html>
@@ -228,7 +228,10 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
             <p>Hi <strong>${user.name}</strong>,</p>
             <p>We received a request to reset the password associated with your SmartPost AI account. If you made this request, you can securely configure a new password by clicking the button below:</p>
             <div class="button-container">
-              <a href="${resetUrl}" class="button">Reset My Password</a>
+              // <a href="${resetUrl}" class="button">Reset My Password</a>
+              <a href="${resetUrl}" target="_blank" rel="noopener noreferrer" class="button">
+  Reset My Password
+</a>
             </div>
             <p style="font-size: 13px; color: #94a3b8; margin-top: 30px;">If you didn't request a password reset, you can safely ignore this email. Your active credentials remain completely secure. This link will expire automatically in 10 minutes.</p>
           </div>
@@ -245,7 +248,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     await sendEmail({
       email: user.email,
       subject: 'Your password reset token (valid for 10 min)',
-      message,
+      //message likhna h baad mai
       html
     });
 
